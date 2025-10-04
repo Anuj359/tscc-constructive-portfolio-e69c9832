@@ -79,9 +79,9 @@ const Services = () => {
                 <div className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="bg-tscc-red bg-opacity-10 p-3 rounded-full mr-4">
-                      <service.icon className="text-tscc-red" size={24} />
+                      <service.icon className="text-red-600" size={24} />
                     </div>
-                    <h3 className="text-xl font-semibold">{service.title}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
                   </div>
                   <p className="text-gray-600">{service.description}</p>
                 </div>
@@ -94,11 +94,11 @@ const Services = () => {
       {/* Process Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
-          <SectionTitle 
-            title="Our Work Process" 
-            subtitle="How we approach your construction project from concept to completion"
-            center={true}
-          />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Work Process</h2>
+            <p className="text-lg text-gray-600 mb-4">How we approach your construction project from concept to completion</p>
+            <div className="w-20 h-1 bg-orange-500 mx-auto"></div>
+          </div>
 
           <div className="flex flex-col md:flex-row justify-center mt-12 relative">
             {/* Line connecting the steps (visible on md screens and above) */}
@@ -118,7 +118,7 @@ const Services = () => {
                 <div className="bg-tscc-red text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mb-4">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{step.title}</h3>
                 <p className="text-center text-gray-600 px-2">{step.description}</p>
               </div>
             ))}
@@ -142,34 +142,34 @@ const Services = () => {
               </p>
               
               <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold mb-4">Major Equipment Inventory</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Major Equipment Inventory</h3>
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-tscc-red mr-2" />
+                    <Hammer size={20} className="text-gray-700 mr-2" />
                     <span className="text-gray-700">22 Hydraulic Excavators including L&T, BEML and VOLVO models</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-tscc-red mr-2" />
+                    <Hammer size={20} className="text-gray-700 mr-2" />
                     <span className="text-gray-700">25 Rock Breakers from FINE and DOWN DW</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-tscc-red mr-2" />
+                    <Hammer size={20} className="text-gray-700 mr-2" />
                     <span className="text-gray-700">7 JCB ESCORT 3D</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-tscc-red mr-2" />
+                    <Hammer size={20} className="text-gray-700 mr-2" />
                     <span className="text-gray-700">52 TATA Tippers</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-tscc-red mr-2" />
+                    <Hammer size={20} className="text-gray-700 mr-2" />
                     <span className="text-gray-700">Advanced Engineering Equipment including Total Stations</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-tscc-red mr-2" />
+                    <Hammer size={20} className="text-gray-700 mr-2" />
                     <span className="text-gray-700">Concrete Machinery and Vibrators</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-tscc-red mr-2" />
+                    <Hammer size={20} className="text-gray-700 mr-2" />
                     <span className="text-gray-700">Electrical Generators including Silent DG sets</span>
                   </li>
                 </ul>
@@ -208,7 +208,7 @@ const Services = () => {
           </p>
           <a 
             href="/contact" 
-            className="inline-block bg-white text-tscc-red px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+            className="inline-block bg-orange-500 text-tscc-red px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
           >
             Contact Us Today
           </a>

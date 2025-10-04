@@ -17,8 +17,8 @@ const TeamMemberCard = ({ name, position, imageUrl, description }: TeamMemberCar
         />
       </div>
       <div className="p-6">
-        <h3 className="font-bold text-xl mb-1">{name}</h3>
-        <p className="text-tscc-red font-medium mb-3">{position}</p>
+        <h3 className="font-bold text-xl mb-1 text-gray-900">{name}</h3>
+        <p className="text-gray-600 font-medium mb-3">{position}</p>
         <p className="text-gray-600">{description}</p>
       </div>
     </div>

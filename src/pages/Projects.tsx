@@ -120,7 +120,7 @@ const Projects = () => {
               <button
                 onClick={() => setFilter("all")}
                 className={`px-6 py-2 rounded-md ${
-                  filter === "all" ? "bg-tscc-red text-white" : "text-gray-700 hover:bg-gray-200"
+                  filter === "all" ? "bg-tscc-red text-blue-500" : "text-gray-700 hover:bg-gray-200"
                 } transition-colors`}
               >
                 All Projects
@@ -128,7 +128,7 @@ const Projects = () => {
               <button
                 onClick={() => setFilter("completed")}
                 className={`px-6 py-2 rounded-md ${
-                  filter === "completed" ? "bg-tscc-red text-white" : "text-gray-700 hover:bg-gray-200"
+                  filter === "completed" ? "bg-tscc-red text-green-500" : "text-gray-700 hover:bg-gray-200"
                 } transition-colors`}
               >
                 Completed
@@ -136,7 +136,7 @@ const Projects = () => {
               <button
                 onClick={() => setFilter("ongoing")}
                 className={`px-6 py-2 rounded-md ${
-                  filter === "ongoing" ? "bg-tscc-red text-white" : "text-gray-700 hover:bg-gray-200"
+                  filter === "ongoing" ? "bg-tscc-red text-orange-500" : "text-gray-700 hover:bg-gray-200"
                 } transition-colors`}
               >
                 Ongoing
@@ -163,11 +163,11 @@ const Projects = () => {
       {/* Projects By Category */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
-          <SectionTitle 
-            title="Projects By Category" 
-            subtitle="Explore our expertise across different construction categories"
-            center={true}
-          />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Projects By Category</h2>
+            <p className="text-lg text-gray-600 mb-4">Explore our expertise across different construction categories</p>
+            <div className="w-20 h-1 bg-orange-500 mx-auto"></div>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             {[
@@ -213,7 +213,7 @@ const Projects = () => {
           </p>
           <a 
             href="/contact" 
-            className="inline-block bg-white text-tscc-red px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+            className="inline-block bg-orange-500 text-tscc-red px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
           >
             Get a Free Consultation
           </a>

@@ -101,7 +101,7 @@ const Contact = () => {
                       <div className="bg-tscc-red bg-opacity-10 p-2 rounded-full mr-3">
                         <item.icon className="text-tscc-red" size={20} />
                       </div>
-                      <h3 className="font-semibold text-lg">{item.title}</h3>
+                      <h3 className="font-semibold text-lg text-gray-900">{item.title}</h3>
                     </div>
                     <div className="space-y-1">
                       {item.details.map((detail, i) => (
@@ -115,7 +115,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-6">Send us a Message</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-gray-900">Send us a Message</h3>
               
               {formStatus === "success" && (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
@@ -217,7 +217,7 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-semibold mb-8 text-center">Find Us On Map</h2>
+          <h2 className="text-2xl font-semibold mb-8 text-center text-gray-900">Find Us On Map</h2>
           <div className="rounded-lg overflow-hidden shadow-lg h-[400px] bg-gray-200 flex items-center justify-center">
             <p className="text-gray-500 text-center p-4">
               Map would be embedded here.<br />

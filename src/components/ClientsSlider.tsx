@@ -15,7 +15,7 @@ const ClientsSlider = () => {
   return (
     <div className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Our Trusted Clients</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">Our Trusted Clients</h2>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {clients.map((client) => (

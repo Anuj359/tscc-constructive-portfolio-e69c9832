@@ -40,7 +40,7 @@ const About = () => {
       </div>
 
       {/* Company Overview */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24" >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -86,7 +86,7 @@ const About = () => {
       <StatsCounter />
 
       {/* Mission & Vision */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <SectionTitle 
             title="Our Mission & Vision" 
@@ -96,27 +96,29 @@ const About = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-10 items-center">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Company Mission</h3>
-              <ul className="space-y-4">
-                {missionPoints.map((point, index) => (
-                  <li key={index} className="flex">
-                    <div className="flex-shrink-0 mr-3 mt-1">
-                      <Check className="text-tscc-red" size={20} />
-                    </div>
-                    <p className="text-gray-600">{point}</p>
-                  </li>
-                ))}
-              </ul>
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <h3 className="text-2xl font-semibold mb-6 text-gray-900">Company Mission</h3>
+                <ul className="space-y-4">
+                  {missionPoints.map((point, index) => (
+                    <li key={index} className="flex">
+                      <div className="flex-shrink-0 mr-3 mt-1">
+                        <Check className="text-tscc-red" size={20} />
+                      </div>
+                      <p className="text-gray-700">{point}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-6">Our Vision</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-2xl font-semibold mb-6 text-gray-900">Our Vision</h3>
+              <p className="text-gray-700 mb-4">
                 To be the most trusted and respected construction company, known for our commitment to quality, 
                 safety, and customer satisfaction. We aim to set new benchmarks in the construction industry through 
                 innovation, excellence, and sustainable practices.
               </p>
-              <p className="text-gray-600">
+              <p className="text-gray-700">
                 Our vision extends to continuously investing in both human and technological advancement, ensuring our 
                 team has access to the best training and tools to deliver outstanding results for our clients.
               </p>
@@ -149,7 +151,7 @@ const About = () => {
       </section>
 
       {/* Organization Chart Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <SectionTitle 
             title="Our Organization" 
@@ -158,46 +160,46 @@ const About = () => {
           />
 
           <div className="mt-10 bg-white rounded-lg shadow-lg p-8">
-            <h3 className="text-xl font-semibold mb-6">List of Manpower</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-900">List of Manpower</h3>
             <div className="overflow-x-auto">
               <table className="min-w-full bg-white">
                 <thead>
                   <tr>
-                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold">S.No.</th>
-                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold">Designation/Department</th>
-                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold">Total</th>
+                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold text-gray-900">S.No.</th>
+                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold text-gray-900">Designation/Department</th>
+                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold text-gray-900">Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200">1</td>
-                    <td className="py-2 px-4 border-b border-gray-200">Vice President- Project & Planning</td>
-                    <td className="py-2 px-4 border-b border-gray-200">1</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">1</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">Vice President- Project & Planning</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">1</td>
                   </tr>
                   <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200">2</td>
-                    <td className="py-2 px-4 border-b border-gray-200">General Manager</td>
-                    <td className="py-2 px-4 border-b border-gray-200">3</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">2</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">General Manager</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">3</td>
                   </tr>
                   <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200">3</td>
-                    <td className="py-2 px-4 border-b border-gray-200">Project Manager</td>
-                    <td className="py-2 px-4 border-b border-gray-200">3</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">3</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">Project Manager</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">3</td>
                   </tr>
                   <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200">4</td>
-                    <td className="py-2 px-4 border-b border-gray-200">Dy. P M</td>
-                    <td className="py-2 px-4 border-b border-gray-200">3</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">4</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">Dy. P M</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">3</td>
                   </tr>
                   <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200">5</td>
-                    <td className="py-2 px-4 border-b border-gray-200">Civil Engineers</td>
-                    <td className="py-2 px-4 border-b border-gray-200">10</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">5</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">Civil Engineers</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">10</td>
                   </tr>
                   <tr className="bg-gray-50 font-semibold">
-                    <td className="py-2 px-4 border-b border-gray-200"></td>
-                    <td className="py-2 px-4 border-b border-gray-200">Total</td>
-                    <td className="py-2 px-4 border-b border-gray-200">101</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-900"></td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-900">Total</td>
+                    <td className="py-2 px-4 border-b border-gray-200 text-gray-900">20</td>
                   </tr>
                 </tbody>
               </table>
