@@ -65,39 +65,39 @@ const Counter = ({ end, duration = 2000, label, icon }: CounterProps) => {
 
   return (
     <div className="text-center" ref={counterRef}>
-      <div className="inline-flex justify-center items-center w-16 h-16 rounded-full bg-tscc-red bg-opacity-10 mb-4">
+      <div className="inline-flex justify-center items-center w-20 h-20 rounded-full bg-primary/10 mb-4">
         {icon}
       </div>
-      <h3 className="text-4xl font-bold mb-2">{count}+</h3>
-      <p className="text-gray-600">{label}</p>
+      <h3 className="text-5xl font-bold mb-2 text-foreground">{count}+</h3>
+      <p className="text-muted-foreground font-medium">{label}</p>
     </div>
   );
 };
 
 const StatsCounter = () => {
   return (
-    <div className="bg-gray-100 py-16">
+    <div className="bg-background py-20 border-y border-border">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <Counter 
             end={20}
             label="Years of Experience"
-            icon={<Clock size={32} className="text-tscc-red" />}
+            icon={<Clock size={36} className="text-primary" />}
           />
           <Counter 
             end={100}
             label="Projects Completed"
-            icon={<Building2 size={32} className="text-tscc-red" />}
+            icon={<Building2 size={36} className="text-primary" />}
           />
           <Counter 
             end={150}
             label="Team Members"
-            icon={<Users size={32} className="text-tscc-red" />}
+            icon={<Users size={36} className="text-primary" />}
           />
           <Counter 
             end={25}
             label="Awards Won"
-            icon={<Award size={32} className="text-tscc-red" />}
+            icon={<Award size={36} className="text-primary" />}
           />
         </div>
       </div>

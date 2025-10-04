@@ -13,32 +13,32 @@ const Header = () => {
   return (
     <header className="w-full">
       {/* Top Bar with Contact Info */}
-      <div className="bg-tscc-darkgray text-white py-2">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center mb-2 md:mb-0">
-            <div className="flex items-center mr-4">
-              <Phone size={16} className="mr-1" />
-              <span className="text-sm">+91 XXXXX XXXXX</span>
+      <div className="bg-secondary border-b border-border py-2">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm">
+          <div className="flex items-center mb-2 md:mb-0 gap-4">
+            <div className="flex items-center gap-1">
+              <Phone size={14} className="text-primary" />
+              <span className="text-foreground">+91-011-46578186</span>
             </div>
-            <div className="flex items-center">
-              <Mail size={16} className="mr-1" />
-              <span className="text-sm">mailtscc@gmail.com</span>
+            <div className="flex items-center gap-1">
+              <Mail size={14} className="text-primary" />
+              <span className="text-foreground">mailtscc@gmail.com</span>
             </div>
           </div>
-          <div className="flex items-center">
-            <MapPin size={16} className="mr-1" />
-            <span className="text-sm">Delhi & NCR, India</span>
+          <div className="flex items-center gap-1">
+            <MapPin size={14} className="text-primary" />
+            <span className="text-foreground">Delhi & NCR, India</span>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <div className="bg-white shadow-md">
+      <div className="bg-background border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <Link to="/" className="flex items-center">
               <img 
-                src="/public/lovable-uploads/ba7efd3f-dc66-487d-8951-a634ab5ce291.png" 
+                src="/tscc-logo.png" 
                 alt="TS Construction Company Logo" 
                 className="h-12 md:h-16"
               />
@@ -48,27 +48,27 @@ const Header = () => {
             <nav className="hidden md:flex">
               <ul className="flex space-x-8">
                 <li>
-                  <Link to="/" className="text-tscc-darkgray font-medium hover:text-tscc-red transition-colors">
+                  <Link to="/" className="text-foreground font-medium hover:text-primary transition-colors">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="text-tscc-darkgray font-medium hover:text-tscc-red transition-colors">
+                  <Link to="/about" className="text-foreground font-medium hover:text-primary transition-colors">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services" className="text-tscc-darkgray font-medium hover:text-tscc-red transition-colors">
+                  <Link to="/services" className="text-foreground font-medium hover:text-primary transition-colors">
                     Services
                   </Link>
                 </li>
                 <li>
-                  <Link to="/projects" className="text-tscc-darkgray font-medium hover:text-tscc-red transition-colors">
+                  <Link to="/projects" className="text-foreground font-medium hover:text-primary transition-colors">
                     Projects
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="text-tscc-darkgray font-medium hover:text-tscc-red transition-colors">
+                  <Link to="/contact" className="text-foreground font-medium hover:text-primary transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -78,7 +78,7 @@ const Header = () => {
             {/* Mobile menu button */}
             <button 
               onClick={toggleMenu} 
-              className="md:hidden text-tscc-darkgray"
+              className="md:hidden text-foreground"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -88,12 +88,12 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden bg-white border-t border-gray-200">
+          <nav className="md:hidden bg-secondary border-t border-border">
             <ul className="flex flex-col">
               <li>
                 <Link 
                   to="/" 
-                  className="block px-4 py-3 text-tscc-darkgray hover:bg-gray-100"
+                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
                   onClick={toggleMenu}
                 >
                   Home
@@ -102,7 +102,7 @@ const Header = () => {
               <li>
                 <Link 
                   to="/about" 
-                  className="block px-4 py-3 text-tscc-darkgray hover:bg-gray-100"
+                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
                   onClick={toggleMenu}
                 >
                   About
@@ -111,7 +111,7 @@ const Header = () => {
               <li>
                 <Link 
                   to="/services" 
-                  className="block px-4 py-3 text-tscc-darkgray hover:bg-gray-100"
+                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
                   onClick={toggleMenu}
                 >
                   Services
@@ -120,7 +120,7 @@ const Header = () => {
               <li>
                 <Link 
                   to="/projects" 
-                  className="block px-4 py-3 text-tscc-darkgray hover:bg-gray-100"
+                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
                   onClick={toggleMenu}
                 >
                   Projects
@@ -129,7 +129,7 @@ const Header = () => {
               <li>
                 <Link 
                   to="/contact" 
-                  className="block px-4 py-3 text-tscc-darkgray hover:bg-gray-100"
+                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
                   onClick={toggleMenu}
                 >
                   Contact

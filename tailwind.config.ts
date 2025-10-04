@@ -52,12 +52,6 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				tscc: {
-					red: '#D01C1F',
-					blue: '#0A3F9B',
-					darkgray: '#333333',
-					lightgray: '#8E9196',
-				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
