@@ -61,6 +61,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				construction: {
+					yellow: 'hsl(var(--construction-yellow))',
+					blue: 'hsl(var(--construction-blue))',
+					orange: 'hsl(var(--construction-orange))',
+					grey: 'hsl(var(--construction-grey))',
+					dark: 'hsl(var(--construction-dark))'
 				}
 			},
 			borderRadius: {

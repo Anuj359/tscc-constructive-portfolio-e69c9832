@@ -1,145 +1,130 @@
-
-import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Phone, Mail, Facebook, Twitter, Linkedin } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const navLinks = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Services", path: "/services" },
+    { label: "Projects", path: "/projects" },
+    { label: "Contact", path: "/contact" },
+  ];
+
   return (
-    <header className="w-full">
-      {/* Top Bar with Contact Info */}
-      <div className="bg-secondary border-b border-border py-2">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm">
-          <div className="flex items-center mb-2 md:mb-0 gap-4">
-            <div className="flex items-center gap-1">
-              <Phone size={14} className="text-primary" />
-              <span className="text-foreground">+91-011-46578186</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Mail size={14} className="text-primary" />
-              <span className="text-foreground">mailtscc@gmail.com</span>
-            </div>
+    <>
+      {/* Top Info Bar */}
+      <div className="bg-construction-blue text-white py-2 px-4 text-sm border-b-3 border-construction-yellow">
+        <div className="container mx-auto flex flex-wrap justify-between items-center gap-2">
+          <div className="flex items-center gap-4 font-semibold">
+            <span className="flex items-center gap-1">
+              <Phone size={14} />
+              +91-011-46578186
+            </span>
+            <span className="hidden md:flex items-center gap-1">
+              <Mail size={14} />
+              tsccdelhi@gmail.com
+            </span>
           </div>
-          <div className="flex items-center gap-1">
-            <MapPin size={14} className="text-primary" />
-            <span className="text-foreground">Delhi & NCR, India</span>
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-bold">Follow us:</span>
+            <a href="#" className="hover:text-construction-yellow transition-colors">
+              <Facebook size={14} />
+            </a>
+            <a href="#" className="hover:text-construction-yellow transition-colors">
+              <Twitter size={14} />
+            </a>
+            <a href="#" className="hover:text-construction-yellow transition-colors">
+              <Linkedin size={14} />
+            </a>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <div className="bg-background border-b border-border">
+      <nav className="sticky top-0 z-50 bg-card border-b-4 border-construction-yellow shadow-lg">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            <Link to="/" className="flex items-center">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3 hover:scale-105 transition-transform">
               <img 
                 src="/tscc-logo.png" 
-                alt="TS Construction Company Logo" 
-                className="h-12 md:h-16"
+                alt="TS Construction Company" 
+                className="h-14 w-auto drop-shadow-lg"
               />
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex">
-              <ul className="flex space-x-8">
-                <li>
-                  <Link to="/" className="text-foreground font-medium hover:text-primary transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className="text-foreground font-medium hover:text-primary transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services" className="text-foreground font-medium hover:text-primary transition-colors">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/projects" className="text-foreground font-medium hover:text-primary transition-colors">
-                    Projects
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-foreground font-medium hover:text-primary transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`font-bold text-base transition-all relative ${
+                    location.pathname === link.path
+                      ? "text-primary scale-110"
+                      : "text-construction-dark hover:text-primary hover:scale-110"
+                  } ${location.pathname === link.path ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-primary after:rounded-full' : ''}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-            {/* Mobile menu button */}
-            <button 
-              onClick={toggleMenu} 
-              className="md:hidden text-foreground"
+            {/* Mobile Menu Toggle */}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={toggleMenu}
+              className="md:hidden text-construction-dark p-2 rounded-lg hover:bg-primary/10 transition-colors"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </motion.button>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden bg-secondary border-t border-border">
-            <ul className="flex flex-col">
-              <li>
-                <Link 
-                  to="/" 
-                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="md:hidden fixed top-[120px] left-0 right-0 bg-card border-b-4 border-construction-yellow shadow-xl z-40 anime-shadow"
+        >
+          <nav className="container mx-auto px-4 py-4">
+            {navLinks.map((link, index) => (
+              <motion.div
+                key={link.path}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Link
+                  to={link.path}
                   onClick={toggleMenu}
+                  className={`block py-3 px-4 rounded-lg font-bold transition-all ${
+                    location.pathname === link.path
+                      ? "bg-primary text-primary-foreground anime-shadow"
+                      : "text-construction-dark hover:bg-primary/10"
+                  }`}
                 >
-                  Home
+                  {link.label}
                 </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/about" 
-                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
-                  onClick={toggleMenu}
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/services" 
-                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/projects" 
-                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/contact" 
-                  className="block px-4 py-3 text-foreground hover:bg-muted hover:text-primary transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+              </motion.div>
+            ))}
           </nav>
-        )}
-      </div>
-    </header>
+        </motion.div>
+      )}
+    </>
   );
 };
 

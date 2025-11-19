@@ -4,44 +4,51 @@
 
 @layer base {
   :root {
-    --background: 0 0% 7%;  /* Very dark background */
-    --foreground: 0 0% 95%;  /* Light text */
+    --background: 210 30% 96%;  /* Light blue-grey background */
+    --foreground: 220 20% 15%;  /* Dark text */
 
-    --card: 0 0% 10%;  /* Dark card background */
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 100%;  /* White cards */
+    --card-foreground: 220 20% 15%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
 
-    --primary: 28 90% 50%;  /* Orange accent color */
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 95% 55%;  /* Construction yellow */
+    --primary-foreground: 220 20% 15%;
 
-    --secondary: 0 0% 15%;  /* Slightly lighter dark */
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 210 60% 45%;  /* Construction blue */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 210 20% 90%;
+    --muted-foreground: 220 15% 45%;
 
-    --accent: 28 90% 50%;  /* Orange accent */
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 95% 55%;  /* Yellow accent */
+    --accent-foreground: 220 20% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 28 90% 50%;
+    --border: 210 20% 85%;
+    --input: 210 20% 90%;
+    --ring: 45 95% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 28 90% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 28 90% 50%;
+    /* Construction theme colors */
+    --construction-yellow: 45 95% 55%;
+    --construction-blue: 210 60% 45%;
+    --construction-orange: 25 95% 55%;
+    --construction-grey: 210 10% 50%;
+    --construction-dark: 220 20% 15%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 15%;
+    --sidebar-primary: 45 95% 55%;
+    --sidebar-primary-foreground: 220 20% 15%;
+    --sidebar-accent: 210 20% 90%;
+    --sidebar-accent-foreground: 220 20% 15%;
+    --sidebar-border: 210 20% 85%;
+    --sidebar-ring: 45 95% 55%;
   }
 }
 
@@ -60,7 +67,15 @@
 }
 
 @layer utilities {
-  .text-gradient-orange {
-    @apply bg-gradient-to-r from-primary to-amber-500 bg-clip-text text-transparent;
+  .text-gradient-construction {
+    @apply bg-gradient-to-r from-[hsl(var(--construction-yellow))] to-[hsl(var(--construction-orange))] bg-clip-text text-transparent;
+  }
+  
+  .anime-shadow {
+    box-shadow: 4px 4px 0px hsl(var(--construction-dark) / 0.15);
+  }
+  
+  .anime-shadow-hover:hover {
+    box-shadow: 6px 6px 0px hsl(var(--construction-dark) / 0.2);
   }
 }

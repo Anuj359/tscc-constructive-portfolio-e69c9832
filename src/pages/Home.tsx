@@ -1,6 +1,8 @@
 
-import Hero from "@/components/Hero";
+import AnimeHero from "@/components/AnimeHero";
+import ScrollCrane from "@/components/ScrollCrane";
 import SectionTitle from "@/components/SectionTitle";
+import { motion } from "framer-motion";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import StatsCounter from "@/components/StatsCounter";
@@ -76,58 +78,79 @@ const Home = () => {
   ];
 
   return (
-    <div>
+    <div className="relative">
+      {/* Scroll-Reactive Crane */}
+      <ScrollCrane />
+      
       {/* Hero Section */}
-      <Hero />
+      <AnimeHero />
 
       {/* About Section */}
-      <section className="py-16 md:py-24 bg-secondary/50">
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                About <span className="text-gradient-orange">Us</span>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-black mb-6 text-construction-dark">
+                About <span className="text-gradient-construction">Us</span> 🏢
               </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-lg text-foreground mb-6 leading-relaxed font-medium">
                 T.S Construction Company (TSCC) is one of the leading construction companies
                 of Delhi & NCR region, with operations panning throughout India. Since 2003
                 along with our sister concerns Madhav Buildwell Private Limited and T.S. Infra
                 Services LLP, we have been at the forefront of construction methodologies.
               </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-lg text-foreground mb-8 leading-relaxed font-medium">
                 We are equipped with the latest machinery and equipment to keep pace with everyday
                 advances in the civil construction sphere, enabling us to ensure the highest
                 standards of workmanship in everything we do.
               </p>
-              <Link 
-                to="/about" 
-                className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-md font-semibold transition-all transform hover:scale-105"
-              >
-                Read More About Us
+              <Link to="/about">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-xl font-bold anime-shadow border-2 border-construction-dark transition-all"
+                >
+                  Read More About Us 📖
+                </motion.button>
               </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img 
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              <motion.img
+                whileHover={{ scale: 1.05, rotate: 2 }}
                 src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80" 
                 alt="Construction site" 
-                className="rounded-lg shadow-lg w-full h-64 object-cover border border-border"
+                className="rounded-xl anime-shadow w-full h-64 object-cover border-3 border-construction-dark"
               />
-              <img 
+              <motion.img
+                whileHover={{ scale: 1.05, rotate: -2 }}
                 src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?q=80" 
                 alt="Construction project" 
-                className="rounded-lg shadow-lg w-full h-64 object-cover mt-6 border border-border"
+                className="rounded-xl anime-shadow w-full h-64 object-cover mt-6 border-3 border-construction-dark"
               />
-              <img 
+              <motion.img
+                whileHover={{ scale: 1.05, rotate: -2 }}
                 src="https://images.unsplash.com/photo-1487252665478-49b61b47f302?q=80" 
                 alt="Bridge construction" 
-                className="rounded-lg shadow-lg w-full h-64 object-cover border border-border"
+                className="rounded-xl anime-shadow w-full h-64 object-cover border-3 border-construction-dark"
               />
-              <img 
+              <motion.img
+                whileHover={{ scale: 1.05, rotate: 2 }}
                 src="https://images.unsplash.com/photo-1460574283810-2aab119d8511?q=80" 
                 alt="Building" 
-                className="rounded-lg shadow-lg w-full h-64 object-cover mt-6 border border-border"
+                className="rounded-xl anime-shadow w-full h-64 object-cover mt-6 border-3 border-construction-dark"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
