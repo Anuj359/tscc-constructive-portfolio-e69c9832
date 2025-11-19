@@ -96,10 +96,10 @@ const Projects = () => {
   return (
     <div>
       {/* Page Header */}
-      <div className="bg-tscc-blue py-16 md:py-24">
+      <div className="bg-construction-blue py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Projects</h1>
-          <p className="text-lg text-white opacity-90 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold text-background mb-4">Our Projects</h1>
+          <p className="text-lg text-background/90 max-w-3xl mx-auto">
             Explore our portfolio of completed and ongoing construction projects across India
           </p>
         </div>
