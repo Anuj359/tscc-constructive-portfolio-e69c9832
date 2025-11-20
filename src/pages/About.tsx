@@ -3,6 +3,7 @@ import SectionTitle from "@/components/SectionTitle";
 import TeamMemberCard from "@/components/TeamMemberCard";
 import StatsCounter from "@/components/StatsCounter";
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 const About = () => {
   const teamMembers = [
@@ -14,7 +15,7 @@ const About = () => {
     },
     {
       name: "Mr. Madhav Chaudhary",
-      position: "Head Manager",
+      position: "Managing Partner",
       imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80",
       description: "Mr. Madhav Chaudhary, son of our founder, is contributing to the company for the last 7 years. He has completed his Bachelor's degree in Civil discipline."
     }
@@ -145,6 +146,65 @@ const About = () => {
                 imageUrl={member.imageUrl}
                 description={member.description}
               />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Team Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <SectionTitle 
+            title="Our Core Team" 
+            subtitle="The dedicated professionals who drive our projects to success"
+            center={true}
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+            {[
+              {
+                name: "Project Management Team",
+                description: "Experienced project managers ensuring timely delivery and quality standards across all projects.",
+                icon: "👷"
+              },
+              {
+                name: "Engineering Team",
+                description: "Skilled civil engineers providing technical expertise and innovative solutions for complex projects.",
+                icon: "🏗️"
+              },
+              {
+                name: "Quality Assurance Team",
+                description: "Dedicated QA professionals maintaining the highest standards of construction quality and safety.",
+                icon: "✅"
+              },
+              {
+                name: "Procurement Team",
+                description: "Efficient procurement specialists ensuring timely availability of quality materials and resources.",
+                icon: "📦"
+              },
+              {
+                name: "Safety & Compliance Team",
+                description: "Safety experts ensuring all projects comply with regulations and maintain zero-incident records.",
+                icon: "🛡️"
+              },
+              {
+                name: "Administrative Team",
+                description: "Support staff managing operations, documentation, and client relations with professionalism.",
+                icon: "📋"
+              }
+            ].map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-card rounded-xl anime-shadow p-6 border-2 border-construction-dark/10 hover:anime-shadow-hover transition-all"
+              >
+                <div className="text-4xl mb-4">{member.icon}</div>
+                <h3 className="text-xl font-black text-construction-dark mb-3">{member.name}</h3>
+                <p className="text-foreground font-medium leading-relaxed">{member.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>

@@ -1,7 +1,19 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionTitle from "@/components/SectionTitle";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      reset: (widgetId?: number) => void;
+      getResponse: (widgetId?: number) => string;
+    };
+    enableSubmit: () => void;
+  }
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +25,26 @@ const Contact = () => {
   });
 
   const [formStatus, setFormStatus] = useState<null | "success" | "error">(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitEnabled, setSubmitEnabled] = useState(false);
+
+  useEffect(() => {
+    // Load reCAPTCHA v2 script
+    const script = document.createElement("script");
+    script.src = "https://www.google.com/recaptcha/api.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Enable submit callback
+    window.enableSubmit = () => setSubmitEnabled(true);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -22,24 +54,93 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, you would send the form data to a server
-    // For now, just simulate a successful submission
-    setFormStatus("success");
-    // Reset form after submission
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
     
-    // Reset form status after 3 seconds
-    setTimeout(() => {
-      setFormStatus(null);
-    }, 3000);
+    if (!submitEnabled) {
+      setFormStatus("error");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setFormStatus(null);
+
+    try {
+      // Get reCAPTCHA response - reCAPTCHA v2 creates a textarea with this name
+      const recaptchaElement = document.querySelector('textarea[name="g-recaptcha-response"]') as HTMLTextAreaElement;
+      const recaptchaResponse = recaptchaElement?.value;
+
+      if (!recaptchaResponse || recaptchaResponse.length === 0) {
+        setFormStatus("error");
+        setIsSubmitting(false);
+        alert("Please complete the reCAPTCHA verification before submitting.");
+        return;
+      }
+
+      // Prepare form data
+      const formDataToSend = new FormData();
+      formDataToSend.append("accessKey", "sf_hj0h55l4b875dka92mi4bj9f");
+      formDataToSend.append("subject", `New Contact Form Submission from TSCC Website - ${formData.subject}`);
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone || "");
+      formDataToSend.append("message", formData.message);
+      formDataToSend.append("honeypot", "");
+      formDataToSend.append("g-recaptcha-response", recaptchaResponse);
+
+      // Submit to staticforms.xyz
+      const response = await fetch("https://api.staticforms.xyz/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      let result;
+      try {
+        result = await response.json();
+      } catch (e) {
+        // If response is not JSON, check status
+        if (response.ok) {
+          result = { success: true };
+        } else {
+          result = { success: false, error: "Server error" };
+        }
+      }
+
+      if (response.ok && (result.success !== false)) {
+        setFormStatus("success");
+        // Reset form after submission
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        setSubmitEnabled(false);
+        // Reset reCAPTCHA after a short delay
+        setTimeout(() => {
+          if (window.grecaptcha && typeof window.grecaptcha.reset === 'function') {
+            try {
+              window.grecaptcha.reset();
+            } catch (e) {
+              console.log("reCAPTCHA reset:", e);
+            }
+          }
+        }, 1000);
+      } else {
+        console.error("Form submission failed:", result);
+        setFormStatus("error");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setFormStatus("error");
+    } finally {
+      setIsSubmitting(false);
+      // Reset form status after 5 seconds
+      setTimeout(() => {
+        setFormStatus(null);
+      }, 5000);
+    }
   };
 
   const contactInfo = [
@@ -124,12 +225,17 @@ const Contact = () => {
               )}
 
               {formStatus === "error" && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                  <p>Something went wrong. Please try again later.</p>
+                <div className="bg-red-100 border-2 border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6">
+                  <p className="font-bold">Something went wrong. Please complete the reCAPTCHA and try again.</p>
+                  <p className="text-sm mt-1">If the problem persists, please contact us directly at mailtscc@gmail.com</p>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} id="contactForm">
+                {/* Hidden fields for staticforms.xyz */}
+                <input type="hidden" name="accessKey" value="sf_hj0h55l4b875dka92mi4bj9f" />
+                <input type="text" name="honeypot" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
                     <label htmlFor="name" className="block text-foreground mb-2 font-bold">Your Name *</label>
@@ -201,13 +307,36 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
+                {/* reCAPTCHA v2 */}
+                <div className="mb-4">
+                  <div
+                    className="g-recaptcha"
+                    data-sitekey="6LdtIhcrAAAAADjq-ysNga9cDiRWcW00CEwx1J9L"
+                    data-callback="enableSubmit"
+                  ></div>
+                </div>
+
                 <button
                   type="submit"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-xl font-bold flex items-center justify-center transition-all transform hover:scale-105 anime-shadow border-2 border-construction-dark"
+                  disabled={isSubmitting || !submitEnabled}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-xl font-bold flex items-center justify-center transition-all transform hover:scale-105 anime-shadow border-2 border-construction-dark disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  Send Message
-                  <Send size={16} className="ml-2" />
+                  {isSubmitting ? (
+                    <>
+                      <span className="animate-spin mr-2">⏳</span>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send size={16} className="ml-2" />
+                    </>
+                  )}
                 </button>
+
+                <p className="text-xs text-muted-foreground mt-4">
+                  By submitting this form you are authorizing TS Construction Company to contact you.
+                </p>
               </form>
             </div>
           </div>

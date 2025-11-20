@@ -10,16 +10,25 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import CostCalculator from "./pages/CostCalculator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+// Get base path - matches vite.config.ts base setting
+const getBasePath = () => {
+  if (import.meta.env.MODE === 'production') {
+    return '/tscc-constructive-portfolio-e69c9832/';
+  }
+  return '/';
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={getBasePath()}>
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
@@ -29,6 +38,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/calculator" element={<CostCalculator />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
