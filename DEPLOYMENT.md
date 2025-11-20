@@ -70,8 +70,9 @@ If the site doesn't load correctly:
    - Look for any error messages
 
 3. **Check the base URL:**
-   - Ensure `vite.config.ts` has the correct base path
-   - It should match your repository name: `/tscc-constructive-portfolio-e69c9832/`
+   - For custom domain (tscc.co.in): base path is `/` (root)
+   - For GitHub Pages subdomain: base path is `/tscc-constructive-portfolio-e69c9832/`
+   - The app automatically detects which domain is being used
 
 4. **Clear browser cache:**
    - Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)

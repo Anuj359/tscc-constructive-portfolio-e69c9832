@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: process.env.NODE_ENV === 'production' ? '/tscc-constructive-portfolio-e69c9832/' : '/',
+  // Use root path for custom domain, repo path for GitHub Pages subdomain
+  // Custom domain (tscc.co.in) uses root, GitHub Pages subdomain uses repo path
+  base: process.env.NODE_ENV === 'production' ? '/' : '/',
   server: {
     host: "::",
     port: 8080,

@@ -15,11 +15,27 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Get base path - matches vite.config.ts base setting
+// Get base path - detects if using custom domain or GitHub Pages subdomain
 const getBasePath = () => {
-  if (import.meta.env.MODE === 'production') {
+  // In development, always use root
+  if (import.meta.env.MODE === 'development') {
+    return '/';
+  }
+  
+  // In production, check the hostname
+  const hostname = window.location.hostname;
+  
+  // If using custom domain (tscc.co.in), use root path
+  if (hostname === 'tscc.co.in' || hostname === 'www.tscc.co.in') {
+    return '/';
+  }
+  
+  // If using GitHub Pages subdomain, use repository path
+  if (hostname.includes('github.io')) {
     return '/tscc-constructive-portfolio-e69c9832/';
   }
+  
+  // Default to root for any other domain
   return '/';
 };
 

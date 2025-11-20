@@ -16,14 +16,13 @@
       // Note: this 404.html file must be at least 512 bytes for it to work
       // with Internet Explorer (it is currently > 512 bytes)
 
-      // If you're creating a Project Pages site and NOT using a custom domain,
-      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
-      // This way the code will only replace the route part of the path, and not
-      // the real directory in which the app resides, for example:
-      // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
-      // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
-      // Otherwise, leave pathSegmentsToKeep as 0.
-      var pathSegmentsToKeep = 1;
+      // Detect if using custom domain or GitHub Pages subdomain
+      // Custom domain (tscc.co.in): pathSegmentsToKeep = 0 (serves from root)
+      // GitHub Pages subdomain: pathSegmentsToKeep = 1 (serves from /repo-name/)
+      var isCustomDomain = window.location.hostname === 'tscc.co.in' || 
+                          window.location.hostname === 'www.tscc.co.in' ||
+                          !window.location.hostname.includes('github.io');
+      var pathSegmentsToKeep = isCustomDomain ? 0 : 1;
 
       var l = window.location;
       l.replace(
