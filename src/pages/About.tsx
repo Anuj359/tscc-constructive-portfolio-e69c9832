@@ -30,10 +30,10 @@ const About = () => {
   return (
     <div>
       {/* Page Header */}
-      <div className="bg-construction-blue py-16 md:py-24">
+      <div className="bg-gradient-to-br from-construction-blue to-construction-blue/80 py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-background mb-4">About Us</h1>
-          <p className="text-lg text-background/90 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-black text-background mb-4">About Us</h1>
+          <p className="text-lg text-background/90 max-w-3xl mx-auto font-medium">
             Learn more about T.S Construction Company, our history, mission, and the team behind our success.
           </p>
         </div>
@@ -48,17 +48,17 @@ const About = () => {
                 title="Our Company" 
                 subtitle="A leading construction company in Delhi & NCR since 2003"
               />
-              <p className="text-gray-600 mb-6">
+              <p className="text-foreground mb-6 leading-relaxed font-medium">
                 T.S Construction Company (TSCC) is one of the leading construction companies of Delhi & NCR region, 
                 with operations panning throughout India. Since 2003 along with our sister concerns Madhav Buildwell 
                 Private Limited and T.S. Infra Services LLP, we have been at the forefront of construction methodologies ever since.
               </p>
-              <p className="text-gray-600 mb-6">
+              <p className="text-foreground mb-6 leading-relaxed font-medium">
                 We are currently involved with numerous medium-to–large scale infrastructures, mass housing, commercial, 
                 road, industrial and other construction projects all over India. Large real estate enterprises such as 
                 Indian Railways, NDMC, IJM India Limited, Lanco Infra, Madhucon Projects, and many others have shown faith in us.
               </p>
-              <p className="text-gray-600">
+              <p className="text-foreground leading-relaxed font-medium">
                 TSCC's well managed ability to complete projects both within cost and in a timely fashion while 
                 ensuring quality stays paramount. We are equipped with the latest machinery and equipment to keep 
                 pace with everyday advances in the civil construction sphere, enabling us to ensure the highest standards 
@@ -73,9 +73,9 @@ const About = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute bottom-6 right-6 bg-tscc-red text-white py-4 px-6 rounded-lg shadow-md">
-                <p className="font-bold text-xl">Since 2003</p>
-                <p>Building Excellence</p>
+              <div className="absolute bottom-6 right-6 bg-primary text-primary-foreground py-4 px-6 rounded-xl anime-shadow border-2 border-construction-dark">
+                <p className="font-black text-xl">Since 2003</p>
+                <p className="font-semibold">Building Excellence</p>
               </div>
             </div>
           </div>
@@ -96,29 +96,29 @@ const About = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-10 items-center">
             <div>
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <h3 className="text-2xl font-semibold mb-6 text-gray-900">Company Mission</h3>
+              <div className="bg-card rounded-xl anime-shadow p-8 border-2 border-construction-dark/10">
+                <h3 className="text-2xl font-black mb-6 text-construction-dark">Company Mission</h3>
                 <ul className="space-y-4">
                   {missionPoints.map((point, index) => (
                     <li key={index} className="flex">
                       <div className="flex-shrink-0 mr-3 mt-1">
-                        <Check className="text-tscc-red" size={20} />
+                        <Check className="text-primary" size={20} />
                       </div>
-                      <p className="text-gray-700">{point}</p>
+                      <p className="text-foreground font-medium leading-relaxed">{point}</p>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900">Our Vision</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-card rounded-xl anime-shadow p-8 border-2 border-construction-dark/10">
+              <h3 className="text-2xl font-black mb-6 text-construction-dark">Our Vision</h3>
+              <p className="text-foreground mb-4 leading-relaxed font-medium">
                 To be the most trusted and respected construction company, known for our commitment to quality, 
                 safety, and customer satisfaction. We aim to set new benchmarks in the construction industry through 
                 innovation, excellence, and sustainable practices.
               </p>
-              <p className="text-gray-700">
+              <p className="text-foreground leading-relaxed font-medium">
                 Our vision extends to continuously investing in both human and technological advancement, ensuring our 
                 team has access to the best training and tools to deliver outstanding results for our clients.
               </p>
@@ -159,47 +159,47 @@ const About = () => {
             center={true}
           />
 
-          <div className="mt-10 bg-white rounded-lg shadow-lg p-8">
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">List of Manpower</h3>
+          <div className="mt-10 bg-card rounded-xl anime-shadow p-8 border-2 border-construction-dark/10">
+            <h3 className="text-xl font-black mb-6 text-construction-dark">List of Manpower</h3>
             <div className="overflow-x-auto">
-              <table className="min-w-full bg-white">
+              <table className="min-w-full bg-card">
                 <thead>
                   <tr>
-                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold text-gray-900">S.No.</th>
-                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold text-gray-900">Designation/Department</th>
-                    <th className="py-3 px-4 text-left border-b-2 border-gray-200 bg-gray-50 font-semibold text-gray-900">Total</th>
+                    <th className="py-3 px-4 text-left border-b-2 border-construction-dark/20 bg-muted/50 font-bold text-construction-dark">S.No.</th>
+                    <th className="py-3 px-4 text-left border-b-2 border-construction-dark/20 bg-muted/50 font-bold text-construction-dark">Designation/Department</th>
+                    <th className="py-3 px-4 text-left border-b-2 border-construction-dark/20 bg-muted/50 font-bold text-construction-dark">Total</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">1</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">Vice President- Project & Planning</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">1</td>
+                  <tr className="hover:bg-muted/30 transition-colors">
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">1</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">Vice President- Project & Planning</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">1</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">2</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">General Manager</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">3</td>
+                  <tr className="hover:bg-muted/30 transition-colors">
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">2</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">General Manager</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">3</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">3</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">Project Manager</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">3</td>
+                  <tr className="hover:bg-muted/30 transition-colors">
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">3</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">Project Manager</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">3</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">4</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">Dy. P M</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">3</td>
+                  <tr className="hover:bg-muted/30 transition-colors">
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">4</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">Dy. P M</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">3</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">5</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">Civil Engineers</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-700">10</td>
+                  <tr className="hover:bg-muted/30 transition-colors">
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">5</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">Civil Engineers</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-foreground font-medium">10</td>
                   </tr>
-                  <tr className="bg-gray-50 font-semibold">
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-900"></td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-900">Total</td>
-                    <td className="py-2 px-4 border-b border-gray-200 text-gray-900">20</td>
+                  <tr className="bg-muted/50 font-bold">
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-construction-dark"></td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-construction-dark">Total</td>
+                    <td className="py-2 px-4 border-b border-construction-dark/10 text-construction-dark">20</td>
                   </tr>
                 </tbody>
               </table>

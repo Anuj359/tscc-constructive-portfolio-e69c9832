@@ -86,7 +86,13 @@ const Home = () => {
       <AnimeHero />
 
       {/* About Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <motion.section 
+        className="py-16 md:py-24 bg-muted/30 section-transition"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -130,7 +136,7 @@ const Home = () => {
                 whileHover={{ scale: 1.05, rotate: 2 }}
                 src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80" 
                 alt="Construction site" 
-                className="rounded-xl anime-shadow w-full h-64 object-cover border-3 border-construction-dark"
+                className="rounded-xl anime-shadow w-full h-64 object-cover border-2 border-construction-dark"
               />
               <motion.img
                 whileHover={{ scale: 1.05, rotate: -2 }}
@@ -142,7 +148,7 @@ const Home = () => {
                 whileHover={{ scale: 1.05, rotate: -2 }}
                 src="https://images.unsplash.com/photo-1487252665478-49b61b47f302?q=80" 
                 alt="Bridge construction" 
-                className="rounded-xl anime-shadow w-full h-64 object-cover border-3 border-construction-dark"
+                className="rounded-xl anime-shadow w-full h-64 object-cover border-2 border-construction-dark"
               />
               <motion.img
                 whileHover={{ scale: 1.05, rotate: 2 }}
@@ -153,13 +159,26 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Stats Counter Section */}
-      <StatsCounter />
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <StatsCounter />
+      </motion.section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24">
+      <motion.section 
+        className="py-16 md:py-24 section-transition"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="container mx-auto px-4">
           <SectionTitle 
             title="Our Services" 
@@ -178,10 +197,16 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Featured Projects Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <motion.section 
+        className="py-16 md:py-24 bg-background section-transition"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="container mx-auto px-4">
           <SectionTitle 
             title="Our Featured Projects" 
@@ -211,15 +236,21 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-secondary/50">
+      <motion.section 
+        className="py-16 md:py-24 bg-secondary/50 section-transition"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Why Choose <span className="text-gradient-orange">Us</span>
+              <h2 className="text-4xl md:text-5xl font-black mb-6 text-construction-dark">
+                Why Choose <span className="text-gradient-construction">Us</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 TSCC's well managed ability to complete projects both within cost and in a timely 
@@ -289,29 +320,42 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Clients Section */}
-      <ClientsSlider />
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <ClientsSlider />
+      </motion.section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-amber-500 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <motion.section 
+        className="py-20 bg-gradient-to-r from-primary via-construction-orange to-primary relative overflow-hidden section-transition"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <div className="absolute inset-0 bg-construction-dark/10"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-black text-construction-dark mb-6">
             Want to Book a Quote?
           </h2>
-          <p className="text-white text-lg mb-8 max-w-3xl mx-auto">
+          <p className="text-construction-dark/90 text-lg mb-8 max-w-3xl mx-auto font-medium">
             Contact us today to discuss your project requirements and get a free consultation.
           </p>
           <Link 
             to="/contact" 
-            className="inline-block bg-white hover:bg-gray-100 text-background px-8 py-4 rounded-md font-bold transition-all transform hover:scale-105"
+            className="inline-block bg-construction-dark hover:bg-construction-dark/90 text-primary px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 anime-shadow border-2 border-construction-dark"
           >
             Book Now
           </Link>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

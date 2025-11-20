@@ -68,6 +68,13 @@ export default {
 					orange: 'hsl(var(--construction-orange))',
 					grey: 'hsl(var(--construction-grey))',
 					dark: 'hsl(var(--construction-dark))'
+				},
+				anime: {
+					primary: 'hsl(var(--primary))',
+					secondary: 'hsl(var(--secondary))',
+					accent: 'hsl(var(--accent-orange))',
+					dark: 'hsl(var(--dark))',
+					light: 'hsl(var(--light))'
 				}
 			},
 			borderRadius: {

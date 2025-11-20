@@ -96,10 +96,10 @@ const Projects = () => {
   return (
     <div>
       {/* Page Header */}
-      <div className="bg-construction-blue py-16 md:py-24">
+      <div className="bg-gradient-to-br from-construction-blue to-construction-blue/80 py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-background mb-4">Our Projects</h1>
-          <p className="text-lg text-background/90 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-black text-background mb-4">Our Projects</h1>
+          <p className="text-lg text-background/90 max-w-3xl mx-auto font-medium">
             Explore our portfolio of completed and ongoing construction projects across India
           </p>
         </div>
@@ -116,28 +116,34 @@ const Projects = () => {
           
           {/* Filter Tabs */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-gray-100 rounded-lg p-1">
+            <div className="inline-flex bg-muted rounded-xl p-1 anime-shadow border-2 border-construction-dark/10">
               <button
                 onClick={() => setFilter("all")}
-                className={`px-6 py-2 rounded-md ${
-                  filter === "all" ? "bg-tscc-red text-blue-500" : "text-gray-700 hover:bg-gray-200"
-                } transition-colors`}
+                className={`px-6 py-2 rounded-lg font-bold transition-all ${
+                  filter === "all" 
+                    ? "bg-primary text-primary-foreground anime-shadow" 
+                    : "text-foreground hover:bg-muted/50"
+                }`}
               >
                 All Projects
               </button>
               <button
                 onClick={() => setFilter("completed")}
-                className={`px-6 py-2 rounded-md ${
-                  filter === "completed" ? "bg-tscc-red text-green-500" : "text-gray-700 hover:bg-gray-200"
-                } transition-colors`}
+                className={`px-6 py-2 rounded-lg font-bold transition-all ${
+                  filter === "completed" 
+                    ? "bg-primary text-primary-foreground anime-shadow" 
+                    : "text-foreground hover:bg-muted/50"
+                }`}
               >
                 Completed
               </button>
               <button
                 onClick={() => setFilter("ongoing")}
-                className={`px-6 py-2 rounded-md ${
-                  filter === "ongoing" ? "bg-tscc-red text-orange-500" : "text-gray-700 hover:bg-gray-200"
-                } transition-colors`}
+                className={`px-6 py-2 rounded-lg font-bold transition-all ${
+                  filter === "ongoing" 
+                    ? "bg-primary text-primary-foreground anime-shadow" 
+                    : "text-foreground hover:bg-muted/50"
+                }`}
               >
                 Ongoing
               </button>
@@ -161,12 +167,12 @@ const Projects = () => {
       </section>
 
       {/* Projects By Category */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Projects By Category</h2>
-            <p className="text-lg text-gray-600 mb-4">Explore our expertise across different construction categories</p>
-            <div className="w-20 h-1 bg-orange-500 mx-auto"></div>
+            <h2 className="text-3xl md:text-4xl font-black text-construction-dark mb-4">Projects By Category</h2>
+            <p className="text-lg text-muted-foreground mb-4 font-medium">Explore our expertise across different construction categories</p>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-construction-orange mx-auto rounded-full"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
@@ -205,15 +211,15 @@ const Projects = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-12 md:py-16 bg-tscc-red">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-primary via-construction-orange to-primary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
-          <p className="text-white mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-black text-construction-dark mb-6">Ready to Start Your Project?</h2>
+          <p className="text-construction-dark/90 mb-8 max-w-2xl mx-auto font-medium">
             Let's discuss how we can bring your construction vision to life with our expertise and experience.
           </p>
           <a 
             href="/contact" 
-            className="inline-block bg-orange-500 text-tscc-red px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+            className="inline-block bg-construction-dark hover:bg-construction-dark/90 text-primary px-8 py-3 rounded-xl font-bold transition-all transform hover:scale-105 anime-shadow border-2 border-construction-dark"
           >
             Get a Free Consultation
           </a>

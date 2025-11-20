@@ -71,10 +71,10 @@ const Contact = () => {
   return (
     <div>
       {/* Page Header */}
-      <div className="bg-construction-blue py-16 md:py-24">
+      <div className="bg-gradient-to-br from-construction-blue to-construction-blue/80 py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-background mb-4">Contact Us</h1>
-          <p className="text-lg text-background/90 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-black text-background mb-4">Contact Us</h1>
+          <p className="text-lg text-background/90 max-w-3xl mx-auto font-medium">
             Get in touch with our team to discuss your project requirements or enquire about our services
           </p>
         </div>
@@ -95,17 +95,17 @@ const Contact = () => {
                 {contactInfo.map((item, index) => (
                   <div 
                     key={index} 
-                    className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                    className="bg-card p-6 rounded-xl anime-shadow hover:anime-shadow-hover transition-all border-2 border-construction-dark/10"
                   >
                     <div className="flex items-center mb-4">
-                      <div className="bg-tscc-red bg-opacity-10 p-2 rounded-full mr-3">
-                        <item.icon className="text-tscc-red" size={20} />
+                      <div className="bg-primary/10 p-2 rounded-xl mr-3 anime-glow-hover">
+                        <item.icon className="text-primary" size={20} />
                       </div>
-                      <h3 className="font-semibold text-lg text-gray-900">{item.title}</h3>
+                      <h3 className="font-black text-lg text-construction-dark">{item.title}</h3>
                     </div>
                     <div className="space-y-1">
                       {item.details.map((detail, i) => (
-                        <p key={i} className="text-gray-600">{detail}</p>
+                        <p key={i} className="text-foreground font-medium">{detail}</p>
                       ))}
                     </div>
                   </div>
@@ -114,8 +114,8 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900">Send us a Message</h3>
+            <div className="bg-card rounded-xl anime-shadow p-8 border-2 border-construction-dark/10">
+              <h3 className="text-2xl font-black mb-6 text-construction-dark">Send us a Message</h3>
               
               {formStatus === "success" && (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
@@ -132,26 +132,26 @@ const Contact = () => {
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 mb-2">Your Name *</label>
+                    <label htmlFor="name" className="block text-foreground mb-2 font-bold">Your Name *</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tscc-red"
+                      className="w-full px-4 py-2 border-2 border-construction-dark/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 mb-2">Your Email *</label>
+                    <label htmlFor="email" className="block text-foreground mb-2 font-bold">Your Email *</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tscc-red"
+                      className="w-full px-4 py-2 border-2 border-construction-dark/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
                       required
                     />
                   </div>
@@ -159,24 +159,24 @@ const Contact = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label htmlFor="phone" className="block text-gray-700 mb-2">Phone Number</label>
+                    <label htmlFor="phone" className="block text-foreground mb-2 font-bold">Phone Number</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tscc-red"
+                      className="w-full px-4 py-2 border-2 border-construction-dark/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
                     />
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-gray-700 mb-2">Subject *</label>
+                    <label htmlFor="subject" className="block text-foreground mb-2 font-bold">Subject *</label>
                     <select
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tscc-red"
+                      className="w-full px-4 py-2 border-2 border-construction-dark/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
                       required
                     >
                       <option value="">Select a subject</option>
@@ -189,21 +189,21 @@ const Contact = () => {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-gray-700 mb-2">Your Message *</label>
+                  <label htmlFor="message" className="block text-foreground mb-2 font-bold">Your Message *</label>
                   <textarea
                     id="message"
                     name="message"
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tscc-red"
+                    className="w-full px-4 py-2 border-2 border-construction-dark/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
                     required
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="bg-tscc-red hover:bg-red-700 text-white px-6 py-3 rounded-md font-medium flex items-center justify-center"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-xl font-bold flex items-center justify-center transition-all transform hover:scale-105 anime-shadow border-2 border-construction-dark"
                 >
                   Send Message
                   <Send size={16} className="ml-2" />
@@ -215,11 +215,11 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-semibold mb-8 text-center text-gray-900">Find Us On Map</h2>
-          <div className="rounded-lg overflow-hidden shadow-lg h-[400px] bg-gray-200 flex items-center justify-center">
-            <p className="text-gray-500 text-center p-4">
+          <h2 className="text-2xl font-black mb-8 text-center text-construction-dark">Find Us On Map</h2>
+          <div className="rounded-xl overflow-hidden anime-shadow h-[400px] bg-muted flex items-center justify-center border-2 border-construction-dark/10">
+            <p className="text-muted-foreground text-center p-4 font-medium">
               Map would be embedded here.<br />
               For GitHub Pages, you'll need to replace this with an actual map iframe or image.
             </p>

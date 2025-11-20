@@ -54,10 +54,10 @@ const Services = () => {
   return (
     <div>
       {/* Page Header */}
-      <div className="bg-construction-blue py-16 md:py-24">
+      <div className="bg-gradient-to-br from-construction-blue to-construction-blue/80 py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-background mb-4">Our Services</h1>
-          <p className="text-lg text-background/90 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-black text-background mb-4">Our Services</h1>
+          <p className="text-lg text-background/90 max-w-3xl mx-auto font-medium">
             Comprehensive construction and infrastructure development services across multiple sectors
           </p>
         </div>
@@ -74,16 +74,16 @@ const Services = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
-                <div className="h-2 bg-tscc-red"></div>
+              <div key={index} className="bg-card rounded-xl anime-shadow overflow-hidden transition-all duration-300 hover:-translate-y-2 anime-shadow-hover border-2 border-construction-dark/10">
+                <div className="h-2 bg-gradient-to-r from-primary to-construction-orange"></div>
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="bg-tscc-red bg-opacity-10 p-3 rounded-full mr-4">
-                      <service.icon className="text-red-600" size={24} />
+                    <div className="bg-primary/10 p-3 rounded-xl mr-4 anime-glow-hover">
+                      <service.icon className="text-primary" size={24} />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+                    <h3 className="text-xl font-black text-construction-dark">{service.title}</h3>
                   </div>
-                  <p className="text-gray-600">{service.description}</p>
+                  <p className="text-foreground font-medium leading-relaxed">{service.description}</p>
                 </div>
               </div>
             ))}
@@ -92,17 +92,17 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Work Process</h2>
-            <p className="text-lg text-gray-600 mb-4">How we approach your construction project from concept to completion</p>
-            <div className="w-20 h-1 bg-orange-500 mx-auto"></div>
+            <h2 className="text-3xl md:text-4xl font-black text-construction-dark mb-4">Our Work Process</h2>
+            <p className="text-lg text-muted-foreground mb-4 font-medium">How we approach your construction project from concept to completion</p>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-construction-orange mx-auto rounded-full"></div>
           </div>
 
           <div className="flex flex-col md:flex-row justify-center mt-12 relative">
             {/* Line connecting the steps (visible on md screens and above) */}
-            <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-tscc-red bg-opacity-30 z-0"></div>
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-construction-orange to-primary z-0 opacity-30"></div>
 
             {/* Process Steps */}
             {[
@@ -115,11 +115,11 @@ const Services = () => {
                 key={index} 
                 className="flex-1 relative z-10 mb-8 md:mb-0 flex flex-col items-center"
               >
-                <div className="bg-tscc-red text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mb-4">
+                <div className="bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center font-black mb-4 anime-shadow border-2 border-construction-dark">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{step.title}</h3>
-                <p className="text-center text-gray-600 px-2">{step.description}</p>
+                <h3 className="text-xl font-black mb-2 text-construction-dark">{step.title}</h3>
+                <p className="text-center text-foreground px-2 font-medium leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
@@ -141,36 +141,36 @@ const Services = () => {
                 of workmanship in everything we do.
               </p>
               
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Major Equipment Inventory</h3>
-                <ul className="space-y-2">
+              <div className="bg-card rounded-xl anime-shadow p-6 border-2 border-construction-dark/10">
+                <h3 className="text-xl font-black mb-4 text-construction-dark">Major Equipment Inventory</h3>
+                <ul className="space-y-3">
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-gray-700 mr-2" />
-                    <span className="text-gray-700">22 Hydraulic Excavators including L&T, BEML and VOLVO models</span>
+                    <Hammer size={20} className="text-primary mr-3" />
+                    <span className="text-foreground font-medium">22 Hydraulic Excavators including L&T, BEML and VOLVO models</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-gray-700 mr-2" />
-                    <span className="text-gray-700">25 Rock Breakers from FINE and DOWN DW</span>
+                    <Hammer size={20} className="text-primary mr-3" />
+                    <span className="text-foreground font-medium">25 Rock Breakers from FINE and DOWN DW</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-gray-700 mr-2" />
-                    <span className="text-gray-700">7 JCB ESCORT 3D</span>
+                    <Hammer size={20} className="text-primary mr-3" />
+                    <span className="text-foreground font-medium">7 JCB ESCORT 3D</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-gray-700 mr-2" />
-                    <span className="text-gray-700">52 TATA Tippers</span>
+                    <Hammer size={20} className="text-primary mr-3" />
+                    <span className="text-foreground font-medium">52 TATA Tippers</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-gray-700 mr-2" />
-                    <span className="text-gray-700">Advanced Engineering Equipment including Total Stations</span>
+                    <Hammer size={20} className="text-primary mr-3" />
+                    <span className="text-foreground font-medium">Advanced Engineering Equipment including Total Stations</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-gray-700 mr-2" />
-                    <span className="text-gray-700">Concrete Machinery and Vibrators</span>
+                    <Hammer size={20} className="text-primary mr-3" />
+                    <span className="text-foreground font-medium">Concrete Machinery and Vibrators</span>
                   </li>
                   <li className="flex items-center">
-                    <Hammer size={20} className="text-gray-700 mr-2" />
-                    <span className="text-gray-700">Electrical Generators including Silent DG sets</span>
+                    <Hammer size={20} className="text-primary mr-3" />
+                    <span className="text-foreground font-medium">Electrical Generators including Silent DG sets</span>
                   </li>
                 </ul>
               </div>
@@ -187,9 +187,9 @@ const Services = () => {
                 alt="Construction site" 
                 className="rounded-lg shadow-md w-full h-56 object-cover mt-6"
               />
-              <div className="col-span-2 bg-tscc-blue p-6 rounded-lg shadow-md">
-                <h3 className="text-xl text-white font-semibold mb-3">Health & Safety Measures</h3>
-                <p className="text-white opacity-90">
+              <div className="col-span-2 bg-gradient-to-br from-construction-blue to-construction-blue/80 p-6 rounded-xl anime-shadow border-2 border-construction-dark/20">
+                <h3 className="text-xl text-background font-black mb-3">Health & Safety Measures</h3>
+                <p className="text-background/90 font-medium leading-relaxed">
                   We prioritize worker safety with proper equipment, training, and site protocols. 
                   All sites are equipped with first aid kits, safety gear, and follow strict security protocols.
                 </p>
@@ -200,15 +200,15 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-tscc-red">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-primary via-construction-orange to-primary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Need Our Services?</h2>
-          <p className="text-white mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-black text-construction-dark mb-6">Need Our Services?</h2>
+          <p className="text-construction-dark/90 mb-8 max-w-2xl mx-auto font-medium">
             Get in touch with our team to discuss your project requirements and how we can help you achieve your construction goals.
           </p>
           <a 
             href="/contact" 
-            className="inline-block bg-orange-500 text-tscc-red px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+            className="inline-block bg-construction-dark hover:bg-construction-dark/90 text-primary px-8 py-3 rounded-xl font-bold transition-all transform hover:scale-105 anime-shadow border-2 border-construction-dark"
           >
             Contact Us Today
           </a>

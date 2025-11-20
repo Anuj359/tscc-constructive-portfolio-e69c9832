@@ -4,51 +4,72 @@
 
 @layer base {
   :root {
-    --background: 210 30% 96%;  /* Light blue-grey background */
-    --foreground: 220 20% 15%;  /* Dark text */
+    /* Anime-inspired color palette */
+    /* Primary: #FFD447 (construction yellow) */
+    --primary: 48 100% 65%;
+    --primary-foreground: 0 0% 11%;  /* #1C1C1C */
 
-    --card: 0 0% 100%;  /* White cards */
-    --card-foreground: 220 20% 15%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
-
-    --primary: 45 95% 55%;  /* Construction yellow */
-    --primary-foreground: 220 20% 15%;
-
-    --secondary: 210 60% 45%;  /* Construction blue */
+    /* Secondary: #1A73E8 (clean anime blue) */
+    --secondary: 214 78% 51%;
     --secondary-foreground: 0 0% 100%;
 
+    /* Dark: #1C1C1C */
+    --dark: 0 0% 11%;
+
+    /* Light: #F5F7FA */
+    --light: 210 20% 97%;
+
+    /* Accents: #FF9B4A, #3A3A3A */
+    --accent-orange: 25 100% 64%;
+    --accent-dark: 0 0% 23%;
+
+    /* Background & Foreground */
+    --background: 210 20% 97%;  /* #F5F7FA */
+    --foreground: 0 0% 11%;  /* #1C1C1C */
+
+    /* Card */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11%;
+
+    /* Muted */
     --muted: 210 20% 90%;
-    --muted-foreground: 220 15% 45%;
+    --muted-foreground: 0 0% 35%;
 
-    --accent: 45 95% 55%;  /* Yellow accent */
-    --accent-foreground: 220 20% 15%;
+    /* Accent */
+    --accent: 48 100% 65%;
+    --accent-foreground: 0 0% 11%;
 
+    /* Destructive */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 85%;
-    --input: 210 20% 90%;
-    --ring: 45 95% 55%;
+    /* Border & Input */
+    --border: 0 0% 85%;
+    --input: 0 0% 90%;
+    --ring: 48 100% 65%;
 
     --radius: 0.75rem;
 
-    /* Construction theme colors */
-    --construction-yellow: 45 95% 55%;
-    --construction-blue: 210 60% 45%;
-    --construction-orange: 25 95% 55%;
-    --construction-grey: 210 10% 50%;
-    --construction-dark: 220 20% 15%;
+    /* Construction theme colors - unified with anime palette */
+    --construction-yellow: 48 100% 65%;  /* #FFD447 */
+    --construction-blue: 214 78% 51%;  /* #1A73E8 */
+    --construction-orange: 25 100% 64%;  /* #FF9B4A */
+    --construction-grey: 0 0% 23%;  /* #3A3A3A */
+    --construction-dark: 0 0% 11%;  /* #1C1C1C */
 
+    /* Sidebar */
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 20% 15%;
-    --sidebar-primary: 45 95% 55%;
-    --sidebar-primary-foreground: 220 20% 15%;
+    --sidebar-foreground: 0 0% 11%;
+    --sidebar-primary: 48 100% 65%;
+    --sidebar-primary-foreground: 0 0% 11%;
     --sidebar-accent: 210 20% 90%;
-    --sidebar-accent-foreground: 220 20% 15%;
-    --sidebar-border: 210 20% 85%;
-    --sidebar-ring: 45 95% 55%;
+    --sidebar-accent-foreground: 0 0% 11%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 48 100% 65%;
   }
 }
 
@@ -64,6 +85,12 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Smooth section transitions */
+  section {
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
 @layer utilities {
@@ -72,10 +99,22 @@
   }
   
   .anime-shadow {
-    box-shadow: 4px 4px 0px hsl(var(--construction-dark) / 0.15);
+    box-shadow: 0 4px 12px hsl(var(--construction-dark) / 0.1), 0 2px 4px hsl(var(--construction-dark) / 0.06);
   }
   
   .anime-shadow-hover:hover {
-    box-shadow: 6px 6px 0px hsl(var(--construction-dark) / 0.2);
+    box-shadow: 0 8px 20px hsl(var(--construction-dark) / 0.15), 0 4px 8px hsl(var(--construction-dark) / 0.1);
+  }
+
+  .anime-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  .anime-glow-hover:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+  }
+
+  .section-transition {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }

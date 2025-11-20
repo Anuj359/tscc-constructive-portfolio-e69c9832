@@ -117,39 +117,39 @@ const Counter = ({ end, duration = 2000, label, icon }: CounterProps) => {
 
   return (
     <div className="text-center" ref={counterRef} key={animationKey}>
-      <div className="inline-flex justify-center items-center w-20 h-20 rounded-full bg-orange-600 mb-4">
+      <div className="inline-flex justify-center items-center w-20 h-20 rounded-full bg-primary mb-4 anime-shadow border-2 border-construction-dark">
         {icon}
       </div>
-      <h3 className="text-5xl font-bold mb-2 text-white">{count}+</h3>
-      <p className="text-gray-300 font-medium">{label}</p>
+      <h3 className="text-5xl font-black mb-2 text-primary">{count}+</h3>
+      <p className="text-muted-foreground font-bold">{label}</p>
     </div>
   );
 };
 
 const StatsCounter = () => {
   return (
-    <div className="bg-gray-900 py-20">
+    <div className="bg-gradient-to-br from-construction-dark to-construction-grey py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <Counter 
             end={20}
             label="Years of Experience"
-            icon={<Clock size={36} className="text-white" />}
+            icon={<Clock size={36} className="text-primary-foreground" />}
           />
           <Counter 
             end={100}
             label="Projects Completed"
-            icon={<Building2 size={36} className="text-white" />}
+            icon={<Building2 size={36} className="text-primary-foreground" />}
           />
           <Counter 
             end={150}
             label="Team Members"
-            icon={<Users size={36} className="text-white" />}
+            icon={<Users size={36} className="text-primary-foreground" />}
           />
           <Counter 
             end={25}
             label="Awards Won"
-            icon={<Award size={36} className="text-white" />}
+            icon={<Award size={36} className="text-primary-foreground" />}
           />
         </div>
       </div>

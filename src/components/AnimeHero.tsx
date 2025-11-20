@@ -87,7 +87,7 @@ const AnimeHero = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg anime-shadow border-3 border-construction-dark transition-all flex items-center justify-center gap-2"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg anime-shadow border-2 border-construction-dark transition-all flex items-center justify-center gap-2"
               >
                 <Hammer className="w-5 h-5" />
                 Get A Quote
@@ -98,7 +98,7 @@ const AnimeHero = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-8 py-4 rounded-xl font-bold text-lg anime-shadow border-3 border-construction-dark transition-all"
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-8 py-4 rounded-xl font-bold text-lg anime-shadow border-2 border-construction-dark transition-all"
               >
                 View Projects 🏗️
               </motion.button>

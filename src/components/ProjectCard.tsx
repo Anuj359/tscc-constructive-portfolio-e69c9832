@@ -12,7 +12,7 @@ const ProjectCard = ({ title, location, value, imageUrl, isCompleted = true }: P
   return (
     <motion.div
       whileHover={{ scale: 1.05, y: -8 }}
-      className="group overflow-hidden rounded-xl anime-shadow-hover bg-card border-3 border-construction-dark transition-all"
+      className="group overflow-hidden rounded-xl anime-shadow-hover bg-card border-2 border-construction-dark transition-all"
     >
       {/* Project Image */}
       <div className="h-52 overflow-hidden relative">

@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <>
       {/* Top Info Bar */}
-      <div className="bg-construction-blue text-white py-2 px-4 text-sm border-b-3 border-construction-yellow">
+      <div className="bg-gradient-to-r from-construction-blue to-construction-blue/90 text-background py-2 px-4 text-sm border-b-2 border-primary">
         <div className="container mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4 font-semibold">
             <span className="flex items-center gap-1">
@@ -50,7 +50,7 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="sticky top-0 z-50 bg-card border-b-4 border-construction-yellow shadow-lg">
+      <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b-2 border-primary anime-shadow">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -98,7 +98,7 @@ const Header = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden fixed top-[120px] left-0 right-0 bg-card border-b-4 border-construction-yellow shadow-xl z-40 anime-shadow"
+          className="md:hidden fixed top-[120px] left-0 right-0 bg-card/95 backdrop-blur-sm border-b-2 border-primary shadow-xl z-40 anime-shadow"
         >
           <nav className="container mx-auto px-4 py-4">
             {navLinks.map((link, index) => (

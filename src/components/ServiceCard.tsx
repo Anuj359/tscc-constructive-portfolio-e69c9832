@@ -11,7 +11,7 @@ const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05, y: -5 }}
-      className="bg-card p-6 rounded-xl border-3 border-construction-dark anime-shadow-hover transition-all group"
+      className="bg-card p-6 rounded-xl border-2 border-construction-dark anime-shadow-hover transition-all group"
     >
       <motion.div
         whileHover={{ rotate: 360 }}
