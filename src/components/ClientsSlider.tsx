@@ -1,31 +1,34 @@
-
 const ClientsSlider = () => {
-  // List of client logos - these will be dummy placeholders
   const clients = [
-    { id: 1, name: "Indian Railways" },
-    { id: 2, name: "NDMC" },
-    { id: 3, name: "IJM Infrastructure Limited" },
-    { id: 4, name: "Eros Group" },
-    { id: 5, name: "Nehru Place Hotels Limited" },
-    { id: 6, name: "Krishi Vigyan Kendra" },
-    { id: 7, name: "Ajnara India Limited" },
-    { id: 8, name: "D.D Industries" },
+    { id: 1, name: "Indian Railways", logo: "/clients/indian-railways.png" },
+    { id: 2, name: "NDMC", logo: "/tscc-logo.png" },
+    { id: 3, name: "IJM Infrastructure Limited", logo: "/tscc-logo.png" },
+    { id: 4, name: "Eros Group", logo: "/clients/eros-group.png" },
+    { id: 5, name: "Nehru Place Hotels Limited", logo: "/tscc-logo.png" },
+    { id: 6, name: "Krishi Vigyan Kendra", logo: "/tscc-logo.png" },
+    { id: 7, name: "Ajnara India Limited", logo: "/clients/ajnara.png" },
+    { id: 8, name: "D.D Industries", logo: "/tscc-logo.png" },
   ];
 
   return (
-    <div className="py-12 bg-gray-50">
+    <div className="py-16 bg-muted/20">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">Our Trusted Clients</h2>
+        <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-construction-dark">
+          Our Trusted <span className="text-gradient-construction">Clients</span>
+        </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {clients.map((client) => (
             <div 
               key={client.id}
-              className="flex items-center justify-center bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              className="flex items-center justify-center bg-background p-6 rounded-xl anime-shadow border-2 border-construction-dark/20 hover:border-construction-orange transition-all hover:scale-105"
             >
-              <div className="h-12 flex items-center justify-center">
-                {/* This would be an actual logo image in a real implementation */}
-                <p className="font-medium text-gray-800 text-center">{client.name}</p>
+              <div className="h-20 flex items-center justify-center w-full">
+                <img 
+                  src={client.logo} 
+                  alt={client.name}
+                  className="max-h-16 max-w-full object-contain filter grayscale hover:grayscale-0 transition-all"
+                />
               </div>
             </div>
           ))}

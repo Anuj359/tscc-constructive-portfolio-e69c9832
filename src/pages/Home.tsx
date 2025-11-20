@@ -1,6 +1,5 @@
 
 import AnimeHero from "@/components/AnimeHero";
-import ScrollCrane from "@/components/ScrollCrane";
 import SectionTitle from "@/components/SectionTitle";
 import { motion } from "framer-motion";
 import ServiceCard from "@/components/ServiceCard";
@@ -79,9 +78,6 @@ const Home = () => {
 
   return (
     <div className="relative">
-      {/* Scroll-Reactive Crane */}
-      <ScrollCrane />
-      
       {/* Hero Section */}
       <AnimeHero />
 
