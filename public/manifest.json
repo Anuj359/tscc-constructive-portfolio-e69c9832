@@ -1,0 +1,21 @@
+{
+  "name": "TSCC (T S Construction Company)",
+  "short_name": "TSCC",
+  "description": "Leading construction company in Delhi & NCR region, with operations spanning throughout India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/tscc-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/tscc-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
