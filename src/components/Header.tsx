@@ -32,7 +32,7 @@ const Header = () => {
             </span>
             <span className="hidden md:flex items-center gap-1">
               <Mail size={14} />
-              tsccdelhi@gmail.com
+              mailtscc@gmail.com
             </span>
           </div>
           <div className="flex items-center gap-3">
